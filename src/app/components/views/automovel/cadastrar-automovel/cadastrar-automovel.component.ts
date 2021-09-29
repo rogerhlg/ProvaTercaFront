@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Automovel } from 'src/app/models/automovel';
 import { AutomovelService } from 'src/app/services/automovel.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-cadastrar-automovel',
@@ -13,7 +14,7 @@ export class CadastrarAutomovelComponent implements OnInit {
   ano!: number;
   cor!: string;
   marca!: string;
-  constructor(private service: AutomovelService) { }
+  constructor(private service: AutomovelService, private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -26,6 +27,7 @@ export class CadastrarAutomovelComponent implements OnInit {
     };
     this.service.create(carro).subscribe((carro) => {
       console.log(carro);
+      this.router.navigate([""]);
     });
   }
 
