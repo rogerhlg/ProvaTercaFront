@@ -25,6 +25,7 @@ export class CadastrarAutomovelComponent implements OnInit {
       cor: this.cor,
       marca: this.marca,
     };
+    
     this.service.create(carro).subscribe((carro) => {
       console.log(carro);
       this.router.navigate([""]);
